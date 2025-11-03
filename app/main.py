@@ -65,7 +65,7 @@ app.add_middleware(
 @app.on_event("startup")
 def startup_event():
     init_db()
-    print("✓ Database initialized")
+    print(" Database initialized")
 
 
 app.include_router(customer.router)
