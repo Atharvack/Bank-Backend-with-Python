@@ -12,17 +12,16 @@ COPY ./requirements.txt /code/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-# --- Code Copying ---
-# For Production, you would uncomment the line below to copy the code into the image.
-# COPY ./app /code/app
 
-# For Development, we don't copy the code here. Instead, we mount the local './app'
-#directory as a volume in the `docker run` command. This enables hot reloading.
+COPY ./app /code/app
+
+
+RUN ruff check /code/app --fix
+
+
 
 
 EXPOSE 8000
 
-# --- Run Application ---
-# The `--reload` flag enables hot reloading for development.
-# For Production, you would remove the `--reload` flag.
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
