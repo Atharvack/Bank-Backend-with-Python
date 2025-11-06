@@ -1,7 +1,7 @@
-# Backend API
+# Backend
 
 **Author:** Atharva Kulkarni  
-**Submission:** Assessment Backend
+
 
 
 
@@ -12,13 +12,13 @@
 
 ## Build Docker Image
 ```bash
-docker build -t meow-api .
+docker build -t bank-api .
 ```
 
 Run Container
 
 ```bash
-docker run -d --name meow-container -p 8000:8000 meow-api
+docker run -d --name bank-container -p 8000:8000 bank-api
 ```
 Access API
 Open in browser or client:
